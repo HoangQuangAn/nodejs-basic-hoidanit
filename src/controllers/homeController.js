@@ -6,7 +6,6 @@ let getHomepage=(req, res)=>{
   connection.query(
     'SELECT * FROM `users`',
     function(err, results, fields) {
-      console.log(results); // results contains rows returned by server
       results.map((row)=>{
         data.push({
           id:row.id,
@@ -16,9 +15,7 @@ let getHomepage=(req, res)=>{
           address : row.address,
         })
       })
-
-      console.log(">>>check data : ", data);
-        return res.render('test/index.ejs',{dataUser:JSON.stringify(data)})
+        return res.render('test/index.ejs',{dataUser:data})
     })
 
 }
