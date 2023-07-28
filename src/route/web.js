@@ -1,5 +1,6 @@
 import express from 'express'
 import homeController from '../controllers/homeController.js';
+
 let router=express.Router();
 
 const initRouter=(app)=>{
