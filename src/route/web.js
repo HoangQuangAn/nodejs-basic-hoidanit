@@ -9,6 +9,9 @@ const initRouter=(app)=>{
   router.get('/about', (req, res) => {
     res.send('Toi la Hoang Quang An')
   })
+  router.get('/detail/user/:userid',homeController.getUser)
+  router.post('/add-user',homeController.addUser)
+
   return app.use('/', router)
 }
 export default initRouter;

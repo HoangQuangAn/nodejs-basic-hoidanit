@@ -20,6 +20,22 @@ let getHomepage=(req, res)=>{
 
 }
 
+let getUser=(req,res)=>{
+  let user={}
+  let id=req.params.userid
+  connection.query(`select * from users where id=${id}`, function(err, results, fields){
+    return res.render('test/detail-user.ejs',{data:results})
+  })
+}
+
+let addUser=(req,res)=>{
+  console.log(">>>check request ", req.body);
+  let {firstName, lastName, email,address}=req.body
+  connection.query(`INSERT INTO users (firstName, lastName, email, address) VALUES ('${firstName}', '${lastName}', '${email}', '${address}')`);
+  return res.redirect('/')
+}
 export default {
-  getHomepage
+  getHomepage,
+  getUser,
+  addUser
 }
