@@ -34,8 +34,21 @@ let addUser=(req,res)=>{
   connection.query(`INSERT INTO users (firstName, lastName, email, address) VALUES ('${firstName}', '${lastName}', '${email}', '${address}')`);
   return res.redirect('/')
 }
+
+let deleteUser=(req,res)=>{
+  let {id}=req.params;
+  connection.query(`DELETE FROM users WHERE id=${id};`)
+  return res.redirect('/')
+}
+let editUser=(req, res)=>{
+  let {id}= req.params;
+  console.log(id);
+  return res.render('test/update-user.ejs')
+}
 export default {
   getHomepage,
   getUser,
-  addUser
+  addUser,
+  deleteUser,
+  editUser
 }

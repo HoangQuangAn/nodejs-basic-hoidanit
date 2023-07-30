@@ -115,8 +115,18 @@
               <a href="/detail/user/<%= dataUser[i].id %>" target="_blank"
                 >Detail</a
               >
-              | <button class="btn btn-warning">Edit</button> |
-              <button class="btn btn-danger">Delete</button>
+              | 
+              <form action="/edit-user/<%= dataUser[i].id %>" method="post" style="display: inline-block;">
+                <button 
+                class="btn btn-warning"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                type="submit"
+                >Edit</button> |
+              </form>
+              <form action="/delete-user/<%= dataUser[i].id %>" method="post" style="display: inline-block;">
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
             </td>
           </tr>
           <% } %>

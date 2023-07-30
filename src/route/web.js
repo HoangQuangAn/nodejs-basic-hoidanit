@@ -11,6 +11,8 @@ const initRouter=(app)=>{
   })
   router.get('/detail/user/:userid',homeController.getUser)
   router.post('/add-user',homeController.addUser)
+  router.post('/delete-user/:id',homeController.deleteUser)
+  router.post('/edit-user/:id',homeController.editUser)
 
   return app.use('/', router)
 }
